@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple Site Template — Responsive Example</title>
+  <style>
+    
+    :root{
+      --container-max: 1100px;
+      --spacing: 1rem; 
+      --gutter: calc(var(--spacing) * 1.25);
+      --bg: #ffffff;
+      --muted: #f6f7fb;
+      --text: #1f2937;
+      --muted-text: #6b7280;
+      --primary: #0ea5a4;
+      --accent: #06b6d4;
+      --radius: 10px;
+      --card-shadow: 0 6px 18px rgba(16,24,40,0.06);
+      --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+
+      
+      --h1-size: clamp(1.4rem, 3.2vw, 2.25rem);
+      --h2-size: clamp(1.2rem, 2.6vw, 1.5rem);
+      --base-size: 1rem;
+    }
+
+    
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font-sans);
+      background:var(--muted);
+      color:var(--text);
+      line-height:1.45;
+      font-size:var(--base-size);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    
+    .container{
+      width:90%;
+      max-width:var(--container-max);
+      margin:0 auto;
+      padding:calc(var(--spacing) * 0.75) 0;
+    }
+
+    header{
+      background:linear-gradient(90deg, rgba(255,255,255,0.6), rgba(255,255,255,0));
+      position:sticky; top:0; z-index:40;
+      backdrop-filter: blur(6px);
+    }
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:var(--gutter);
+      padding:calc(var(--spacing) * 0.6) 0;
+    }
+    .brand{display:flex; align-items:center; gap:0.6rem;}
+    .brand .logo{width:40px; height:40px; background:var(--primary); border-radius:8px; display:inline-block}
+    .brand h1{font-size:1rem; margin:0}
+
+    
+    nav{display:flex; align-items:center; gap:1rem}
+    .nav-links{display:none; flex-direction:column; gap:0.5rem;}
+    .nav-links a{display:block; text-decoration:none; color:var(--text); padding:0.45rem 0.5rem; border-radius:6px}
+    .nav-links a:hover{background:rgba(0,0,0,0.03)}
+
+    
+    .nav-toggle{appearance:none; border:0; background:transparent; width:40px; height:40px; display:flex; align-items:center; justify-content:center; cursor:pointer}
+    .nav-toggle svg{width:20px;height:20px}
+
+    
+    .hero{
+      background: linear-gradient(180deg, rgba(10,8,20,0.02), transparent);
+      padding:calc(var(--spacing) * 1.5) 0;
+      text-align:left;
+    }
+    .hero-grid{display:grid; grid-template-columns:1fr; gap:var(--gutter); align-items:center}
+    .hero-copy h2{font-size:var(--h1-size); margin:0 0 0.5rem}
+    .hero-copy p{color:var(--muted-text); margin:0 0 1rem}
+    .btn{display:inline-block; text-decoration:none; padding:0.6rem 1rem; border-radius:8px; background:var(--primary); color:white}
+    .hero-figure img{width:100%; height:auto; border-radius:var(--radius); box-shadow:var(--card-shadow)}
+
+    
+    .features{padding:calc(var(--spacing) * 1) 0}
+    .card-grid{display:grid; grid-template-columns:1fr; gap:var(--gutter)}
+    .card{background:white; padding:calc(var(--spacing) * 0.9); border-radius:var(--radius); box-shadow:var(--card-shadow)}
+
+    
+    .two-col{display:grid; grid-template-columns:1fr; gap:var(--gutter); align-items:center; padding:calc(var(--spacing) * 1) 0}
+    .two-col img{width:100%; height:auto; border-radius:var(--radius)}
+
+    footer{padding:calc(var(--spacing) * 0.8) 0; color:var(--muted-text)}
+
+    
+    .muted{color:var(--muted-text)}
+
+    
+
+    
+    @media (min-width:375px){
+      .container{width:92%;}
+      .nav-links{display:none}
+      
+      .hero{padding:calc(var(--spacing) * 1.75) 0}
+    }
+
+    
+    @media (min-width:768px){
+      .topbar{padding:calc(var(--spacing) * 0.9) 0}
+      .nav-links{display:flex; flex-direction:row; gap:0.75rem}
+      .nav-toggle{display:none}
+
+      .hero-grid{grid-template-columns: 1fr 1fr}
+      .card-grid{grid-template-columns:repeat(2, 1fr)}
+      .two-col{grid-template-columns: 1fr 1fr}
+      .brand h1{font-size:1.05rem}
+    }
+
+    
+    @media (min-width:1024px){
+      .container{width:95%;}
+      .card-grid{grid-template-columns:repeat(3, 1fr)}
+      .hero-copy h2{font-size:clamp(1.9rem, 2.2vw, 2.6rem)}
+    }
+
+    
+    @media (max-width:374px){
+      
+      .brand h1{font-size:0.95rem}
+      .hero-copy h2{font-size:1.25rem}
+    }
+
+    
+    a:focus, button:focus{outline:3px solid color-mix(in srgb, var(--primary) 30%, transparent); outline-offset:2px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container topbar">
+      <div class="brand">
+        <span class="logo" aria-hidden="true"></span>
+        <h1>Simple Site</h1>
+      </div>
+
+      <nav aria-label="Основна навігація">
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </button>
+
+        <div class="nav-links" id="navLinks">
+          <a href="#">Home</a>
+          <a href="#features">Features</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h2>Гнучкий та адаптивний шаблон для вашого сайту</h2>
+          <p class="muted">Цей приклад показує, як використовувати CSS-перемінні, відносні одиниці та медіа-запити щоб забезпечити хорошу читабельність і макет на будь-якому пристрої.</p>
+          <a class="btn" href="#features">Почати</a>
+        </div>
+        <div class="hero-figure">
+          <img src="https://picsum.photos/800/500?random=1" alt="Ілюстрація адаптивності">
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="features container">
+      <h3 style="font-size:var(--h2-size); margin:0 0 0.75rem">Features</h3>
+      <div class="card-grid">
+        <article class="card">
+          <h4 style="margin:0 0 0.5rem">Респонсивність</h4>
+          <p class="muted">Макет автоматично перестроюється для різних ширин екрана завдяки медіа-запитам та флекс/гриду.</p>
+        </article>
+        <article class="card">
+          <h4 style="margin:0 0 0.5rem">Перемінні CSS</h4>
+          <p class="muted">Використовуйте var() щоб централізувати кольори, відступи і розміри — легко підтримувати дизайн.</p>
+        </article>
+        <article class="card">
+          <h4 style="margin:0 0 0.5rem">Адаптивні зображення</h4>
+          <p class="muted">Зображення мають max-width:100%; height:auto; щоб не виходити за межі контейнеру.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="two-col container">
+      <div>
+        <h3 style="margin-top:0">Про шаблон</h3>
+        <p class="muted">Цей простий приклад демонструє підхід mobile-first з медіа-запитами на мінімальній ширині 375px та вгору. Ви можете інтегрувати стилі до вашого проекту, винісши змінні в окремий файл і підлаштувати брейкпоінти.</p>
+      </div>
+      <div>
+        <img src="https://picsum.photos/600/400?random=2" alt="Приклад зображення">
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <div style="display:flex; justify-content:space-between; align-items:center; gap:var(--gutter);">
+      <small>&copy; Simple Site — 2025</small>
+      <nav aria-label="Footer nav"><a href="#contact" style="text-decoration:none;color:var(--muted-text)">Contact</a></nav>
+    </div>
+  </footer>
+
+  <script>
+    
