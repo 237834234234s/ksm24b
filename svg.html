@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SVG — Чотири фігури з анімацією</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      padding: 20px;
+      background: #f7f7f7;
+      color: #222;
+    }
+
+    svg {
+      width: 100%;
+      max-width: 720px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      background: #ffffff;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    .shape {
+      stroke-width: 5px;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+    }
+
+    .square   { stroke: #0B3D91; fill: #AEDFF7; }
+    .rect     { stroke: #6A0DAD; fill: #FFE4B5; }
+    .circle   { stroke: #FF8C00; fill: #FFD700; }
+    .ellipse  { stroke: #228B22; fill: #B7E4C7; }
+
+    .animate-color {
+      animation: color-change 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes color-change {
+      from {
+        stroke: #FF8C00;
+        fill:   #FFD700;
+      }
+      to {
+        stroke: #FF004D;
+        fill:   #8A2BE2;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>SVG: квадрат, прямокутник, коло (анімація), еліпс</h1>
+
+  <svg viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Чотири SVG-фігури: квадрат, прямокутник, коло (анімація), еліпс">
+    <title>Чотири фігури з прикладом CSS-анімації</title>
+
+    <rect class="shape square"
+          x="18" y="18"
+          width="90" height="90"
+          rx="6" ry="6" />
+
+    <rect class="shape rect"
+          x="128" y="18"
+          width="170" height="90"
+          rx="8" ry="8" />
+
+    <circle class="shape circle animate-color"
+            cx="360" cy="63"
+            r="44" />
+
+    <ellipse class="shape ellipse"
+             cx="210" cy="170"
+             rx="170" ry="32" />
+  </svg>
+</body>
+</html>
+```
