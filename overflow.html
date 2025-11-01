@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>05_overflow</title>
+        <style>
+        body{font-family: Arial, sans-serif;padding:20px}
+        .wrap{width:320px;height:120px;border:1px solid #333;margin-bottom:12px;padding:6px}
+        .content{width:600px;height:200px;background:linear-gradient(45deg,#f0f8ff,#ffe6f0)}
+        .note{font-size:0.9rem;color:#333}
+        </style>
+    </head>
+<body>
+    <h1>Overflow: управління вмістом що виходить за межі</h1>
+    <div>
+    <h2>overflow: visible (за замовчуванням)</h2>
+    <div class="wrap" style="overflow:visible">
+    <div class="content">Вміст ширший/вищий за контейнер — він виходить за межі.</div>
+    </div>
+
+
+    <h2>overflow: hidden</h2>
+    <div class="wrap" style="overflow:hidden">
+    <div class="content">При overflow:hidden частина вмісту обрізається.</div>
+    </div>
+
+
+    <h2>overflow: auto (з'являються смуги прокрутки при потребі)</h2>
+    <div class="wrap" style="overflow:auto">
+    <div class="content">При overflow:auto з'являються смуги прокрутки коли вміст не вміщується.</div>
+    </div>
+
+
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="uk">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+            <title>01_div_span — Блоки та інлайн</title>
+                <style>
+                    body{font-family: Arial, sans-serif; padding:20px}
+                    .box{border:2px solid #444;padding:12px;margin-bottom:12px}
+                    .block-item{display:block;background:#f0f8ff;padding:8px;margin:6px 0}
+                    .inline-item{display:inline;background:#fff8dc;padding:6px;margin:0 6px}
+                    .inline-item.big{font-size:1.25rem}
+                    .demo-row{background:#f9f9f9;padding:10px}
+            </style>
+        </head>
+    <body>
+        <h1>Демо: &lt;div&gt; та &lt;span&gt;</h1>
+        <section class="box">
+        <h2>Блокові елементи</h2>
+        <p>Блокові елементи займають всю ширину контейнера і починаються з нового рядка.</p>
+        <div class="block-item">Я — &lt;div&gt; (block)</div>
+        <div class="block-item">Ще один блоковий елемент</div>
+    </section>
+
+
+    <section class="box">
+         <h2>Інлайнові елементи</h2>
+         <p>Інлайнові елементи розміщуються в рядку, не починають нового рядка.</p>
+        <div class="demo-row">
+        Це текст з <span class="inline-item">span 1</span> і ще одним <span class="inline-item big">span 2 (великий)</span> у рядку.
+    </div>
+        </section>
+
+
+     <section class="box">
+        <h2>Комбінація</h2>
+        <div class="block-item">Вкладений <span class="inline-item">span у div</span> демонструє змішання.</div>
+     </section>
+    </body>
+</html>
