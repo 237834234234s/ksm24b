@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Adaptive Grid — MAIN / LEFT / RIGHT (Bootstrap)</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    :root{
+      --gutter: 1rem;
+    }
+
+    body{
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:#f5f6f8;
+      color:#212529;
+      padding-top:1rem;
+      padding-bottom:1rem;
+    }
+
+    header, footer{
+      background:#ffffff;
+      border-radius:8px;
+      padding:0.75rem 1rem;
+      box-shadow:0 6px 18px rgba(13,22,38,0.05);
+      margin-bottom:1rem;
+    }
+
+    .site-shell{
+      background:#ffffff;
+      border-radius:8px;
+      padding:1rem;
+      box-shadow:0 6px 18px rgba(13,22,38,0.05);
+    }
+
+    .left-carousel .carousel-item img{
+      width:100%;
+      height:380px;
+      object-fit:cover;
+    }
+
+    @media (max-width:575.98px){
+      .left-carousel .carousel-item img{
+        height:320px;
+      }
+    }
+
+    .accordion .accordion-body{
+      white-space:pre-wrap;
+    }
+
+    .dropdown-submenu{
+      position:relative;
+    }
+    .dropdown-submenu > .dropdown-menu{
+      top:0;
+      left:100%;
+      margin-left:.1rem;
+      margin-right:.1rem;
+      border-radius:0.35rem;
+    }
+
+    .form-section{
+      gap:0.75rem;
+    }
+
+    footer{
+      margin-top:1rem;
+    }
+
+    .col + .col{
+      margin-top:var(--gutter);
+    }
+
+    @media (min-width:992px){
+      .col + .col{ margin-top:0; }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header class="mb-3">
+      <nav class="navbar navbar-expand-lg p-0">
+        <div class="container-fluid p-0 align-items-center">
+          <a class="navbar-brand px-2" href="#">Brand</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNav" aria-controls="topNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="topNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Головна</a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Послуги
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                  <li><a class="dropdown-item" href="#">Веб-розробка</a></li>
+                  <li><a class="dropdown-item" href="#">Дизайн</a></li>
+                  <li class="dropdown-submenu">
+                    <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown">Більше послуг</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">SEO</a></li>
+                      <li><a class="dropdown-item" href="#">Маркетинг</a></li>
+                      <li><a class="dropdown-item" href="#">Підтримка</a></li>
+                    </ul>
+                  </li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Контакти</a></li>
+                </ul>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Про нас
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                  <li><a class="dropdown-item" href="#">Команда</a></li>
+                  <li><a class="dropdown-item" href="#">Історія</a></li>
+                </ul>
+              </li>
+            </ul>
+
+            <form class="d-flex" role="search" aria-label="search form">
+              <input class="form-control me-2" type="search" placeholder="Пошук" aria-label="Search">
+              <button class="btn btn-outline-primary" type="submit">Шукати</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="site-shell">
+      <div class="row g-3">
+
+        <aside class="col-12 col-md-4 col-lg-3 order-1 order-lg-1">
+          <div class="p-2 rounded">
+            <h5 class="mb-2">Галерея (слайдер)</h5>
+            <div id="leftCarousel" class="carousel slide left-carousel" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="https://picsum.photos/400/600?random=101" class="d-block w-100" alt="vertical image 1">
+                </div>
+                <div class="carousel-item">
+                  <img src="https://picsum.photos/400/600?random=102" class="d-block w-100" alt="vertical image 2">
+                </div>
+                <div class="carousel-item">
+                  <img src="https://picsum.photos/400/600?random=103" class="d-block w-100" alt="vertical image 3">
+                </div>
+                <div class="carousel-item">
+                  <img src="https://picsum.photos/400/600?random=104" class="d-block w-100" alt="vertical image 4">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#leftCarousel" data-bs-slide="prev" aria-label="Previous">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#leftCarousel" data-bs-slide="next" aria-label="Next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              </button>
+              <div class="d-flex justify-content-between mt-2">
+                <small class="text-muted">Вертикальні зображення</small>
+                <small class="text-muted">4+</small>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <section class="col-12 col-md-8 col-lg-6 order-2 order-lg-2">
+          <div class="p-2 rounded">
+            <h4 class="mb-3">MAIN — Контент</h4>
+
+            <div class="accordion" id="mainAccordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Розділ 1: Опис проєкту
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#mainAccordion">
+                  <div class="accordion-body">
+                    Це приклад вмісту для першого розділу. Тут можна помістити текст, зображення, списки або інші компоненти.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Розділ 2: Технічні деталі
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#mainAccordion">
+                  <div class="accordion-body">
+                    Технічні деталі: версії бібліотек, структура файлів, налаштування і т.д.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Розділ 3: Інструкції користувача
+                  </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#mainAccordion">
+                  <div class="accordion-body">
+                    Короткі інструкції: як користуватися інтерфейсом, як заповнювати форму тощо.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Розділ 4: Часті питання
+                  </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#mainAccordion">
+                  <div class="accordion-body">
+                    Перелік часто задаваних питань і відповідей.
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        <aside class="col-12 col-lg-3 order-3 order-lg-3">
+          <div class="p-2 rounded">
+            <h5 class="mb-2">Форма з мінімум 5 полями</h5>
+            <form class="needs-validation" novalidate>
+              <div class="mb-2">
+                <label for="fullName" class="form-label">ПІБ</label>
+                <input type="text" class="form-control" id="fullName" placeholder="Іван Іванов" required>
+                <div class="invalid-feedback">Будь ласка, введіть ПІБ.</div>
+              </div>
+
+              <div class="mb-2">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+                <div class="invalid-feedback">Введіть коректну адресу електронної пошти.</div>
+              </div>
+
+              <div class="mb-2">
+                <label for="phone" class="form-label">Телефон</label>
+                <input type="tel" class="form-control" id="phone" placeholder="+380xxxxxxxxx" pattern="^\+?[0-9\s\-()]{6,}$" required>
+                <div class="invalid-feedback">Введіть номер телефону.</div>
+              </div>
+
+              <div class="mb-2">
+                <label for="serviceSelect" class="form-label">Оберіть послугу</label>
+                <select id="serviceSelect" class="form-select" required>
+                  <option value="">Оберіть...</option>
+                  <option>Веб-розробка</option>
+                  <option>Дизайн</option>
+                  <option>SEO</option>
+                </select>
+                <div class="invalid-feedback">Оберіть опцію.</div>
+              </div>
+
+              <div class="mb-2">
+                <label for="message" class="form-label">Повідомлення</label>
+                <textarea id="message" class="form-control" rows="3" required></textarea>
+                <div class="invalid-feedback">Напишіть коротке повідомлення.</div>
+              </div>
+
+              <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">Відправити</button>
+                <button type="reset" class="btn btn-outline-secondary">Очистити</button>
+              </div>
+            </form>
+
+            <hr />
+
+            <div>
+              <h6>Додатково</h6>
+              <p class="mb-0 small text-muted">Коротка інформація або віджети можуть бути розміщені тут.</p>
+            </div>
+
+          </div>
+        </aside>
+
+      </div>
+    </main>
+
+    <footer class="mt-3 p-3 text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-6 text-start">
+            <strong>Footer</strong>
+            <p class="mb-0 small">Контакт: info@example.com</p>
+          </div>
+          <div class="col-12 col-md-6 text-md-end mt-2 mt-md-0">
+            <small class="text-muted">© 2025 Компанія</small>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      var forms = document.querySelectorAll('.needs-validation');
+      Array.prototype.slice.call(forms).forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+
+      var submenuToggles = document.querySelectorAll('.dropdown-submenu > .dropdown-item.dropdown-toggle');
+      submenuToggles.forEach(function(btn){
+        btn.addEventListener('click', function(e){
+          e.preventDefault();
+          e.stopPropagation();
+          var menu = btn.nextElementSibling;
+          if(menu){
+            if(menu.classList.contains('show')){
+              menu.classList.remove('show');
+            } else {
+              document.querySelectorAll('.dropdown-submenu .dropdown-menu.show').forEach(function(m){ m.classList.remove('show'); });
+              menu.classList.add('show');
+            }
+          }
+        });
+      });
+
+      document.querySelectorAll('.dropdown').forEach(function(dd){
+        dd.addEventListener('hide.bs.dropdown', function(){
+          dd.querySelectorAll('.dropdown-menu.show').forEach(function(m){ m.classList.remove('show'); });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
+```
