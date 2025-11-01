@@ -1,0 +1,67 @@
+<!doctype html>
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>02_normalize_vs_reset — Normalize vs Reset</title>
+        <link id="normalize-link" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" disabled>
+        <link id="reset-link" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" disabled>
+    <style>
+body{font-family: Georgia, serif; padding:20px}
+header{margin-bottom:16px}
+button{margin-right:8px;padding:8px 12px}
+.demo{border:1px dashed #888;padding:12px}
+.demo h1{font-size:1.5rem}
+.demo p{margin:8px 0}
+        </style>
+            </head>
+    <body>
+        <header>
+            <h1>Normalize vs Reset — Динамічне порівняння</h1>
+            <p>Натисніть кнопки, щоб по черзі включити normalize.css або reset.css і спостерігати зміни.</p>
+            <button id="toggle-normalize">Увімкнути/Вимкнути normalize.css</button>
+            <button id="toggle-reset">Увімкнути/Вимкнути reset.css</button>
+        </header>
+
+
+        <main class="demo">
+            <h1>Заголовок (h1)</h1>
+            <h2>Підзаголовок (h2)</h2>
+            <p>Текстовий абзац для демонстрації стандартних відступів, міжрядкових інтервалів та стилів списків.</p>
+            <ul>
+            <li>Пункт списку один</li>
+            <li>Пункт список два</li>
+            </ul>
+            <form>
+                <label>Мітка: <input placeholder="поле вводу"></label>
+                <button type="button">Кнопка</button>
+            </form>
+            </main>
+
+
+            <section style="margin-top:18px;">
+            <p id="explain"></p>
+            </section>
+
+
+        <script>
+        const normLink = document.getElementById('normalize-link');
+        const resetLink = document.getElementById('reset-link');
+        const explain = document.getElementById('explain');
+
+    document.getElementById('toggle-normalize').addEventListener('click', ()=>{
+    normLink.disabled = !normLink.disabled;
+    if(!normLink.disabled) resetLink.disabled = true;
+    describe();
+    });
+
+
+    document.getElementById('toggle-reset').addEventListener('click', ()=>{
+    resetLink.disabled = !resetLink.disabled;
+    if(!resetLink.disabled) normLink.disabled = true;
+    describe();
+    });
+
+    describe();
+    </script>
+    </body>
+</html>

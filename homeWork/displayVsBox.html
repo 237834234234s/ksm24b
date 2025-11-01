@@ -1,0 +1,29 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>04_float_and_clear</title>
+        <style>
+        body{font-family: Arial, sans-serif;padding:20px}
+        .container{border:1px solid #bbb;padding:12px}
+        .left{float:left;width:30%;background:#e6f7ff;padding:8px;margin-right:12px}
+        .right{float:right;width:30%;background:#fff3e6;padding:8px;margin-left:12px}
+        .center{background:#f9f9f9;padding:8px}
+        .clearfix::after{content:"";display:table;clear:both}
+        </style>
+        </head>
+        <body>
+            <h1>Float & Clear</h1>
+            <div class="container">
+            <div class="left">Лівий колонковий блок (float: left)</div>
+            <div class="right">Правий колонковий блок (float: right)</div>
+            <div class="center">Тут текст, що обтікає плаваючі блоки.</div>
+            <div style="clear:both;margin-top:12px;border-top:1px dashed #ccc;padding-top:8px"></div>
+            </div>
+
+
+        <h2>Приклад clearfix</h2>
+        <div class="container clearfix">
+        <div style="float:left;width:40%;background:#eef;padding:8px">Плаваючий всередині clearfix</div>
+    </div>
+    </body>
+</html>
